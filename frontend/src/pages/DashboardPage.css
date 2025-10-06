@@ -166,6 +166,11 @@
   margin-bottom: 1.5rem;
 }
 
+.card .card-type {
+  font-size: 2rem; /* Un poco más pequeño que el saldo */
+  color: #2d3748; /* Color oscuro para el texto */
+}
+
 .card a {
   color: #27a50a;
   text-decoration: none;

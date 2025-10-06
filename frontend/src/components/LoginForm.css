@@ -152,6 +152,16 @@
   margin-bottom: 20px;
 }
 
+.session-expired-message {
+  background-color: #fff9c4;
+  color: #7f5f01;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #f9e2af;
+  text-align: center;
+  margin: 1rem auto;
+  max-width: 900px;
+}
 /* Media query para pantallas más pequeñas */
 @media (max-width: 768px) {
   .login-wrapper {

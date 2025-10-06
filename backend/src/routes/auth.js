@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../db');
+const authMiddleware = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -41,7 +42,7 @@ router.post('/login', async (req, res) => {
     };
 
     // Firmamos el token con un secreto (¡debe estar en .env!) y una expiración
-    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '15m' });
 
     // 5. Enviar el token al cliente
     res.status(200).json({ token });
@@ -51,5 +52,23 @@ router.post('/login', async (req, res) => {
   }
 });
 
-module.exports = router;
+// @route   POST /api/auth/refresh
+// @desc    Refrescar el token de autenticación para mantener la sesión activa
+// @access  Privado (requiere un token válido)
+router.post('/refresh', authMiddleware, (req, res) => {
+  // El middleware 'authMiddleware' ya ha verificado el token y ha puesto los datos del usuario en req.user
+  const user = req.user;
 
+  // Creamos un nuevo payload para el nuevo token
+  const payload = {
+    userId: user.userId,
+    name: user.name,
+  };
+
+  // Firmamos un nuevo token con una nueva expiración de 15 minutos
+  const newToken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '15m' });
+
+  res.json({ token: newToken });
+});
+
+module.exports = router;

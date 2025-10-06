@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LoginForm from '../components/LoginForm';
 
 const LoginPage = () => {
   const [error, setError] = useState(null);
+  const [sessionExpired, setSessionExpired] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    // Comprobar si la URL tiene el parámetro de sesión expirada
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('sessionExpired')) {
+      setSessionExpired(true);
+    }
+  }, []);
 
   // Esta función se pasará al LoginForm y se ejecutará al enviar el formulario
   const handleLogin = async (credentials) => {
@@ -29,11 +38,8 @@ const LoginPage = () => {
       // Si la respuesta es exitosa, guardamos el token
       localStorage.setItem('authToken', data.token);
 
-      // Mostramos una alerta de éxito y podríamos redirigir
-      alert('¡Inicio de sesión exitoso!');
-      // Por ejemplo, para redirigir:
-      // window.location.href = '/dashboard'; 
-
+      // Recargamos la página. App.jsx detectará el token y mostrará el Dashboard.
+      window.location.reload();
     } catch (apiError) {
       // Si la API devuelve un error (ej. credenciales incorrectas)
       // Usamos el mensaje del error que lanzamos en el 'try'
@@ -49,6 +55,11 @@ const LoginPage = () => {
   return (
     <div>
       {/* Aquí podrías tener un header o cualquier otro elemento de la página */}
+      {sessionExpired && (
+        <div className="session-expired-message">
+          Tu sesión ha expirado por inactividad. Por favor, inicia sesión de nuevo.
+        </div>
+      )}
       <LoginForm 
         onSubmit={handleLogin} 
         error={error} 
