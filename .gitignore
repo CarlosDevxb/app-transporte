@@ -23,6 +23,7 @@ frontend/.env*
 dist
 dist-ssr
 *.local
+backend/src/scripts
 
 # Editor directories and files
 .vscode/*

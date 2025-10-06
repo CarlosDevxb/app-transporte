@@ -116,6 +116,18 @@ Para trabajar en el proyecto, necesitas **dos terminales abiertas** en la raíz 
     cd frontend
     npm run dev
     ```
-    La aplicación de React se abrirá en tu navegador, generalmente en `http://localhost:5173`.
-
----
+    La aplicación de React se abrirá en tu navegador, generalmente en `http://localhost:5173`.// En tu archivo App.jsx o similar
+    import React from 'react';
+    import Login from './components/Login';
+    
+    function App() {
+      return (
+        <div>
+          {/* Aquí podrías tener tus rutas y otros componentes */}
+          <Login />
+        </div>
+      );
+    }
+    
+    export default App;
+    
