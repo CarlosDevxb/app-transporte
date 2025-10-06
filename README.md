@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="/frontend/public/assets/cuchipuGo.png" alt="Logo de CuchipuGo" width="150">
+  <img src="/frontend/public/assets/cuchigologo.png" alt="Logo de CuchipuGo" width="150">
 
   <h1>CuchipuGo - Tu Guía de Transporte Público</h1>
   <p><i>Un proyecto de Cuchipu Entertainment</i></p>
