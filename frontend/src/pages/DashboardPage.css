@@ -1,0 +1,268 @@
+/* Contenedor general de la página del dashboard */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f7fafc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Layout del contenido (Sidebar + Main) --- */
+.dashboard-layout {
+  display: flex;
+  flex: 1; /* Ocupa todo el espacio vertical disponible */
+  overflow: hidden; /* Evita scrolls inesperados en el layout principal */
+}
+
+/* --- Barra Lateral (Sidebar) --- */
+.sidebar {
+  width: 260px;
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  transition: width 0.3s ease;
+  flex-shrink: 0; /* Evita que la barra lateral se encoja */
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.sidebar-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+}
+
+.sidebar-header h2 {
+  font-size: 1.5rem;
+  color: #2d3748;
+  font-weight: 700;
+  margin: 0; /* Aseguramos que no tenga márgenes extra */
+}
+
+.sidebar-nav {
+  flex-grow: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #4a5568;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-item:hover {
+  background-color: #f0f2f5;
+  color: #2d3748;
+}
+
+.nav-item.active {
+  background-color: #e6f7e3; /* Verde muy claro */
+  color: #27a50a; /* Verde principal */
+  font-weight: 600;
+}
+
+.nav-icon {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+}
+
+.logout-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border: none;
+  background-color: transparent;
+  color: #718096;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.logout-button:hover {
+  background-color: #f0f2f5;
+  color: #e53e3e; /* Rojo para indicar acción de salida */
+}
+
+/* --- Botón de menú para móvil --- */
+.mobile-menu-button {
+  display: none; /* Oculto por defecto */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 1rem;
+  color: #2d3748;
+}
+
+
+/* --- Contenido Principal --- */
+.main-content {
+  flex-grow: 1;
+  padding: 2rem 3rem;
+  overflow-y: auto;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.main-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 0.5rem;
+}
+
+.main-header p {
+  font-size: 1.1rem;
+  color: #718096;
+}
+
+/* --- Tarjetas de Información --- */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin-bottom: 1rem;
+}
+
+.card .card-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #27a50a; /* Verde principal */
+  margin-bottom: 1.5rem;
+}
+
+.card a {
+  color: #27a50a;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.card a:hover {
+  color: #34c215;
+}
+
+/* --- Pie de Página Principal de la App --- */
+.app-footer {
+  background-color: #ffffff;
+  color: #718096;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Para que se adapte en pantallas pequeñas */
+  gap: 1rem;
+  border-top: 3px solid #27a50a; /* Línea superior con el color de la marca */
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.footer-logo {
+  height: 40px;
+  width: auto;
+  opacity: 0.9;
+}
+
+.footer-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer-info a {
+  color: #27a50a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-social a {
+  color: #4a5568;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-social a:hover {
+  color: #27a50a;
+}
+
+.footer-social a:last-child {
+  margin-right: 0;
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    z-index: 1000;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .mobile-menu-button {
+    display: block; /* Visible en móvil */
+  }
+
+  .main-content {
+    padding: 1.5rem;
+  }
+
+  .app-footer {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
