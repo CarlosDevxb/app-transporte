@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Archivos de sistema operativo y editores
+.DS_Store
+*.log
+.vscode/
+
+# Ignorar dependencias del Backend
+backend/node_modules
+backend/.env
+
+# Ignorar dependencias y archivos de build del Frontend
+frontend/node_modules
+frontend/dist
+frontend/.env*
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
