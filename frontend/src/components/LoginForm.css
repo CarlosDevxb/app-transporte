@@ -1,0 +1,166 @@
+/* Contenedor de toda la página */
+.login-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+/* Tarjeta principal que contiene las dos columnas */
+.login-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+  width: 100%;
+  max-width: 900px;
+  min-height: 600px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Para que los bordes redondeados se apliquen a los hijos */
+}
+
+.login-branding {
+  background: linear-gradient(135deg, #27a50a, #41dd12);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.branding-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.branding-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.login-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 2rem; /* Espacio entre el logo y el formulario */
+}
+
+.login-form {
+  width: 100%;
+  text-align: center;
+}
+
+/* Área del formulario (columna derecha) */
+.login-form-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 40px;
+  background-color: #fff;
+}
+
+.login-form h2 {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 24px;
+}
+
+.login-form p {
+  margin-bottom: 30px; /* Más espacio */
+  color: #666;
+  font-size: 16px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  position: relative; /* Necesario para la animación del label */
+}
+
+.input-group label {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Esquinas más redondeadas */
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+  font-size: 16px;
+}
+
+/* --- CAMBIO PRINCIPAL AQUÍ --- */
+.input-group input:focus,
+.input-group input:not(:placeholder-shown) {
+  border-color: #41dd12; /* Borde de color verde vibrante al seleccionar */
+  box-shadow: 0 0 0 3px rgba(65, 221, 18, 0.2); /* Sombra exterior suave */
+  outline: none; /* Quitamos el borde por defecto del navegador */
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 8px;
+  font-size: 12px;
+  color: #27a50a;
+  background-color: white;
+  padding: 0 4px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px; /* Esquinas más redondeadas */
+  background-color: #27a50a; /* Verde oscuro principal para el botón */
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.login-button:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+}
+
+.login-button:hover:not(:disabled) {
+  background-color: #34c215; /* Verde más claro para el efecto hover */
+}
+
+.login-button:active:not(:disabled) {
+  transform: scale(0.98); /* Efecto de "presionado" */
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .login-wrapper {
+    grid-template-columns: 1fr; /* Apila las columnas */
+    max-width: 450px;
+    min-height: auto;
+  }
+
+  .login-branding {
+    display: none; /* Oculta la sección de branding en móviles */
+  }
+}
