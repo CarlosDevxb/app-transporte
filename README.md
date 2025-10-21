@@ -2,6 +2,7 @@
   <img src="/frontend/public/assets/cuchigologo.png" alt="Logo de CuchipuGo" width="150">
 
   <h1>CuchipuGo - Tu Guía de Transporte Público</h1>
+  <h2>Javier de Jesus Gaitan Villa<h2>
   <p><i>Un proyecto de Cuchipu Entertainment</i></p>
 <h1>Nombre original de Alejandro Ramos Coyotecatl<h1>
   <img src="/frontend/public/assets/CuchipuEntreteinment(DS)V1.jpg" alt="Logo Cuchipu Entertainment" width="100">
