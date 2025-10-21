@@ -3,7 +3,7 @@
 
   <h1>CuchipuGo - Tu Guía de Transporte Público</h1>
   <p><i>Un proyecto de Cuchipu Entertainment</i></p>
-
+<h1>Nombre original de Alejandro Ramos Coyotecatl<h1>
   <img src="/frontend/public/assets/CuchipuEntreteinment(DS)V1.jpg" alt="Logo Cuchipu Entertainment" width="100">
 
   <p>
